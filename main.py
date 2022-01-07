@@ -5,7 +5,7 @@
 # https://cdn.who.int/media/docs/default-source/international-nonproprietary-names-(inn)/stembook-2018.pdf?sfvrsn=32a51b3c_6&download=true
 
 from pscript import py2js
-import re
+from re import compile as cmpl, search
 
 
 class Linguist():
@@ -28,13 +28,13 @@ class Linguist():
                 
                 root = self._strip_dash(stem)
                 if stem.startswith('-') and not stem.endswith('-'):
-                    pattern = re.compile(f'.*{root}')
+                    pattern = cmpl(f'.*{root}')
                 elif stem.endswith('-') and not stem.startswith('-'):
-                    pattern = re.compile(f'{root}.*')
+                    pattern = cmpl(f'{root}.*')
                 elif stem.startswith('-') and stem.endswith('-'):
-                    pattern = re.compile(f'.*{root}.*')
+                    pattern = cmpl(f'.*{root}.*')
                 else:
-                    pattern = re.compile(f'.*{stem}.*')
+                    pattern = cmpl(f'.*{stem}.*')
                     
                 self.patterns[stem] = pattern
                 
@@ -43,7 +43,7 @@ class Linguist():
         matching_roots = []
         
         for stem, pattern in self.patterns.items():
-            if re.search(pattern, drug):
+            if search(pattern, drug):
                 matching_roots.append(stem)
 
         out = {}  # py2js can't handle a dict comp
@@ -66,6 +66,9 @@ if __name__ == '__main__':
     l = Linguist('./stems.tsv')
 
     print(py2js(Linguist))
+
+    from pscript import evaljs
+    evaljs(py2js(Linguist))
    
     """
     while True:
