@@ -1,6 +1,17 @@
 <html>
     <head>
-        <title>Drug Etymology</title>
+        <title>Drug Name Etymology</title>
+        
+        <!-- Ripped from https://github.com/dhg/Skeleton-->
+        <meta charset="utf-8">
+        <meta name="description" content="Drug Name Etymology based on INN stems">
+        <meta name="author" content="Edridge D'Souza">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://raw.githubusercontent.com/dhg/Skeleton/master/css/normalize.css">
+        <link rel="stylesheet" href="https://raw.githubusercontent.com/dhg/Skeleton/master/css/skeleton.css">
+        
+        
         <script src='main.js'></script>
         <script>
             var stem_data;
@@ -24,10 +35,19 @@
     </head>
 
     <body>
-        <label for="dname">Drug name:</label>
-        <input type="text" id="dname" name="dname"><br><br>
-        <button id='analyze' onclick='analyze()'>Analyze</button>
-        <div id='output'></div>
+
+        <div class='container'>
+            <div class="row">
+                <div class="one column">
+                    <h1 class='header'>Drug Etymology Search</h1>
+                </div>
+              </div>
+            
+            <label for="dname">Drug name:</label>
+            <input type="text" id="dname" name="dname"><br><br>
+            <button id='analyze' onclick='analyze()'>Analyze</button>
+            <div id='output'></div>
+        </div>
 
         <script>
             // https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
