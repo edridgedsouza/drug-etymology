@@ -57,6 +57,41 @@ var _pyfunc_format = function (v, fmt) {  // nargs: 2
     }
     return prefix + s;
 };
+var _pyfunc_op_contains = function op_contains (a, b) { // nargs: 2
+    if (b == null) {
+    } else if (Array.isArray(b)) {
+        for (var i=0; i<b.length; i++) {if (_pyfunc_op_equals(a, b[i]))
+                                           return true;}
+        return false;
+    } else if (b.constructor === Object) {
+        for (var k in b) {if (a == k) return true;}
+        return false;
+    } else if (b.constructor == String) {
+        return b.indexOf(a) >= 0;
+    } var e = Error('Not a container: ' + b); e.name='TypeError'; throw e;
+};
+var _pyfunc_op_equals = function op_equals (a, b) { // nargs: 2
+    var a_type = typeof a;
+    // If a (or b actually) is of type string, number or boolean, we don't need
+    // to do all the other type checking below.
+    if (a_type === "string" || a_type === "boolean" || a_type === "number") {
+        return a == b;
+    }
+
+    if (a == null || b == null) {
+    } else if (Array.isArray(a) && Array.isArray(b)) {
+        var i = 0, iseq = a.length == b.length;
+        while (iseq && i < a.length) {iseq = op_equals(a[i], b[i]); i+=1;}
+        return iseq;
+    } else if (a.constructor === Object && b.constructor === Object) {
+        var akeys = Object.keys(a), bkeys = Object.keys(b);
+        akeys.sort(); bkeys.sort();
+        var i=0, k, iseq = op_equals(akeys, bkeys);
+        while (iseq && i < akeys.length)
+            {k=akeys[i]; iseq = op_equals(a[k], b[k]); i+=1;}
+        return iseq;
+    } return a == b;
+};
 var _pyfunc_op_instantiate = function (ob, args) { // nargs: 2
     if ((typeof ob === "undefined") ||
             (typeof window !== "undefined" && window === ob) ||
@@ -191,7 +226,7 @@ Linguist.prototype._strip_dash = function flx__strip_dash (string) {
 };
 
 Linguist.prototype._process_file = function (file) {
-    var defn, f, l, line, pattern, root, stem, stub1_context, stub2_err, stub3_, stub4_seq, stub5_itr;
+    var defn, f, l, line, pattern, stem, stub1_context, stub2_err, stub3_, stub4_seq, stub5_itr;
     stub1_context = open(file, "r");
     f = stub1_context.__enter__();
     try {
@@ -203,16 +238,7 @@ Linguist.prototype._process_file = function (file) {
             stub3_ = _pymeth_split.call(l, "\t");
             stem = stub3_[0];defn = stub3_[1];
             this.definitions[stem] = defn;
-            root = this._strip_dash(stem);
-            if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
-                pattern = cmpl(_pymeth_format.call(".*{}", root));
-            } else if (_pyfunc_truthy((_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))) && ((!_pymeth_startswith.call(stem, "-"))))) {
-                pattern = cmpl(_pymeth_format.call("{}.*", root));
-            } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
-                pattern = cmpl(_pymeth_format.call(".*{}.*", root));
-            } else {
-                pattern = cmpl(_pymeth_format.call(".*{}.*", stem));
-            }
+            pattern = this._search_pattern(stem);
             this.patterns[stem] = pattern;
         }
     } catch(err_1)  { stub2_err=err_1;
@@ -223,15 +249,31 @@ Linguist.prototype._process_file = function (file) {
     return null;
 };
 
+Linguist.prototype._search_pattern = function flx__search_pattern (stem) {
+    var func, root;
+    stem = _pymeth_lower.call(stem);
+    root = Linguist._strip_dash(stem);
+    if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
+        func = (function (drugname) {return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
+    } else if (_pyfunc_truthy((_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))) && ((!_pymeth_startswith.call(stem, "-"))))) {
+        func = (function (drugname) {return _pymeth_startswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
+    } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
+        func = (function (drugname) {return _pyfunc_op_contains(root, _pymeth_lower.call(drugname));}).bind(this);
+    } else {
+        func = (function (drugname) {return _pyfunc_op_contains(stem, _pymeth_lower.call(drugname));}).bind(this);
+    }
+    return func;
+};
+
 Linguist.prototype._etymology = function (drug) {
-    var matching_roots, out, pattern, stem, stub6_seq, stub7_seq, stub8_itr;
+    var matching_roots, out, search_pattern, stem, stub6_seq, stub7_seq, stub8_itr;
     drug = _pymeth_lower.call(drug);
     matching_roots = [];
     stub6_seq = this.patterns;
     for (stem in stub6_seq) {
         if (!stub6_seq.hasOwnProperty(stem)){ continue; }
-        pattern = stub6_seq[stem];
-        if (_pyfunc_truthy(search(pattern, drug))) {
+        search_pattern = stub6_seq[stem];
+        if (_pyfunc_truthy(search_pattern(drug))) {
             _pymeth_append.call(matching_roots, stem);
         }
     }
@@ -256,3 +298,4 @@ Linguist.prototype.explain = function (drug) {
     }
     return out;
 };
+
