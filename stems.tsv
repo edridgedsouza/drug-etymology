@@ -22,7 +22,8 @@ andr	"steroids, androgens"
 -antrone	antineoplastics; anthraquinone derivatives
 -apine	tricyclic compounds
 -apt-	"aptamers, classical and mirror ones"
--(ar)abine	arabinofuranosyl derivatives
+-abine	arabinofuranosyl derivatives
+-arabine	arabinofuranosyl derivatives
 -arit	"antiarthritic substances, acting like clobuzarit and lobenzarit, (mechanism different from antiinflammatory type substances, e.g. -fenamates or -profens)"
 -arol	"anticoagulants, dicoumarol derivatives"
 -arone	-
@@ -214,7 +215,8 @@ iod-	iodine-containing compounds other than contrast media
 -kalim	"potassium channel activators, antihypertensive"
 -kef-	enkephalin agonists
 -kin	interleukin type substances
--ki(n)-	target: interleukin
+-ki-	target: interleukin
+-kin-	target: interleukin
 -kinra	interleukin receptor antagonists
 -kiren	renin inhibitors
 -laner	"antagonists of GABA (gamma-aminobutyric acid) regulated chloride channels, antiparasitic agents"
@@ -319,12 +321,14 @@ orphan	"opioid receptor antagonists/agonists, morphinan derivates"
 -parinux	synthetic heparinoids
 -pendyl	vasodilators
 -penem	analogues of penicillanic acid antibiotics modified in the five-membered ring
-perfl(u)-	perfluorinated compounds used as blood substitutes and/or diagnostic agents
+perfl-	perfluorinated compounds used as blood substitutes and/or diagnostic agents
+perflu-	perfluorinated compounds used as blood substitutes and/or diagnostic agents
 -peridol	"antipsychotics, haloperidol derivatives"
 -peridone	"antipsychotics, risperidone derivatives"
 -perone	"tranquillizers, neuroleptics, 4�-fluoro-4piperidinobutyrophenone derivatives"
 -pidem	"hypnotics/sedatives, zolpidem derivatives"
--pin(e)	tricyclic compounds
+-pin	tricyclic compounds
+-pine	tricyclic compounds
 -piprazole	"psychotropics, phenylpiperazine derivatives"
 -pirone	"anxiolytics, buspirone derivatives"
 -pirox	antimycotic pyridone derivatives
