@@ -8,8 +8,8 @@
         <meta name="author" content="Edridge D'Souza">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://raw.githubusercontent.com/dhg/Skeleton/master/css/normalize.css">
-        <link rel="stylesheet" href="https://raw.githubusercontent.com/dhg/Skeleton/master/css/skeleton.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/skeleton.css">
         
         
         <script src='main.js'></script>
@@ -37,17 +37,36 @@
     <body>
 
         <div class='container'>
-            <div class="row">
-                <div class="one column">
-                    <h1 class='header'>Drug Etymology Search</h1>
+            <section style='margin-top: 5rem'>
+                <div class="row">
+                    <div class="twelve columns">
+                        <h1 class='header'>Drug Etymology Search</h1>
+                    </div>
                 </div>
-              </div>
-            
-            <label for="dname">Drug name:</label>
-            <input type="text" id="dname" name="dname"><br><br>
-            <button id='analyze' onclick='analyze()'>Analyze</button>
-            <div id='output'></div>
+            </section>
+            <div class="row">
+                <div class="twelve columns">
+                    Enter a drug name to guess possible etymologies based on the 2018 INN <a href="https://www.who.int/publications/i/item/who-emp-rht-tsn-2018-1">stem book</a>. If you like this tool and want to modify it, the code is available on my <a href="https://github.com/edridgedsouza/drug-etymology">GitHub</a>.
+                    <br /><br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight columns">
+                    <input class='u-full-width' type="text" id="dname" name="dname" placeholder="Drug name">
+                </div>
+                <div class="two columns">
+                    <button class='button-primary' id='analyze' onclick='analyze()'>Analyze</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="ten columns">
+                    <div id='output'></div>
+                </div>
+            </div> 
         </div>
+
+
 
         <script>
             // https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
