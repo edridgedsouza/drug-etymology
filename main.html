@@ -11,7 +11,7 @@
 
             function analyze() {
                 var l = new Linguist(stem_data);
-                
+
                 var drugname = document.getElementById('dname').value;
                 var out = document.getElementById("output");
                 
@@ -26,8 +26,19 @@
     <body>
         <label for="dname">Drug name:</label>
         <input type="text" id="dname" name="dname"><br><br>
-        <button class='analyze' onclick='analyze()'>Analyze</button>
+        <button id='analyze' onclick='analyze()'>Analyze</button>
         <div id='output'></div>
+
+        <script>
+            // https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+            var input = document.getElementById("dname");
+            input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    document.getElementById("analyze").click();
+                }
+            });
+        </script>
     </body>
 
 </html>
