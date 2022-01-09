@@ -237,10 +237,10 @@ Linguist.prototype._process_data = function (data) {
     return null;
 };
 
-Linguist.prototype._pattern_func = function flx__pattern_func (stem) {
+Linguist.prototype._pattern_func = function (stem) {
     var func, root;
     stem = _pymeth_lower.call(stem);
-    root = Linguist._strip_dash(stem);
+    root = this._strip_dash(stem);
     if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
         func = (function flx_func (drugname) {
             return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);
@@ -265,7 +265,7 @@ Linguist.prototype._pattern_func = function flx__pattern_func (stem) {
     return func;
 };
 
-Linguist.prototype._strip_dash = function flx__strip_dash (string) {
+Linguist.prototype._strip_dash = function (string) {
     return _pymeth_replace.call(string, "-", "");
 };
 

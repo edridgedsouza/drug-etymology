@@ -23,10 +23,10 @@ class Linguist():
             pattern = self._pattern_func(stem)
             self.patterns[stem] = pattern
 
-    @staticmethod
-    def _pattern_func(stem):
+    # @staticmethod
+    def _pattern_func(self, stem):
         stem = stem.lower()
-        root = Linguist._strip_dash(stem)
+        root = self._strip_dash(stem)
 
         if stem.startswith('-') and not stem.endswith('-'):
             def func(drugname): return drugname.lower().endswith(root)
@@ -39,8 +39,8 @@ class Linguist():
 
         return func
 
-    @staticmethod
-    def _strip_dash(string):
+    # @staticmethod
+    def _strip_dash(self, string):
         return string.replace('-', '')
 
     def etymology(self, drug):

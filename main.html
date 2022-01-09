@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Drug Etymology</title>
+        <script src='main.js'></script>
+        <script>
+            var stem_data;
+            fetch('./stems.tsv')
+                .then(response => response.text())
+                .then(data => stem_data = data)
+                .then(() => console.log(stem_data));
+
+            var l = new Linguist(stem_data);
+
+            function analyze() {
+                var drugname = document.getElementById('dname').value;
+                var out = document.getElementById("output");
+                
+                var out_text = l.explain(drugname);
+                out.innerText = out_text;
+            }
+            
+
+        </script>
+    </head>
+
+    <body>
+        <label for="dname">Drug name:</label>
+        <input type="text" id="dname" name="dname"><br><br>
+        <button class='analyze' onclick='analyze()'>Analyze</button>
+        <div id='output'></div>
+    </body>
+
+</html>
