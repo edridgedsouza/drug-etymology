@@ -121,7 +121,7 @@ var _pymeth_append = function (x) { // nargs: 1
 };
 var _pymeth_endswith = function (x) { // nargs: 1
     if (this.constructor !== String) return this.endswith.apply(this, arguments);
-    return this.lastIndexOf(x) == this.length - x.length;
+    return this.endsWith(x);
 };
 var _pymeth_format = function () {
     if (this.constructor !== String) return this.format.apply(this, arguments);

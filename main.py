@@ -67,10 +67,22 @@ class Linguist():
             out = (f'No matching etymologies for drug {drug}.\n')
         return out
 
+# NOTE: Current transpilation for `endswith` gives incorrect results
+# https://github.com/flexxui/pscript/issues/66
+# This manual replacement seems to do the trick
+wrong_code = """var _pymeth_endswith = function (x) { // nargs: 1
+    if (this.constructor !== String) return this.endswith.apply(this, arguments);
+    return this.lastIndexOf(x) == this.length - x.length;
+};"""
+right_code = """var _pymeth_endswith = function (x) { // nargs: 1
+    if (this.constructor !== String) return this.endswith.apply(this, arguments);
+    return this.endsWith(x);
+};"""
 
 if __name__ == '__main__':
     with open('main.js', 'w') as f:
-        f.write(py2js(Linguist))
+        f.write(py2js(Linguist).replace(wrong_code, right_code))
+        
 
     with open('stems.tsv', 'r') as f:
         data = f.read()
