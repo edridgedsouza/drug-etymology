@@ -9,9 +9,9 @@
                 .then(data => stem_data = data)
                 .then(() => console.log(stem_data));
 
-            var l = new Linguist(stem_data);
-
             function analyze() {
+                var l = new Linguist(stem_data);
+                
                 var drugname = document.getElementById('dname').value;
                 var out = document.getElementById("output");
                 
