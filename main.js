@@ -214,74 +214,78 @@ Linguist = function () {
 Linguist.prototype._base_class = Object;
 Linguist.prototype.__name__ = "Linguist";
 
-Linguist.prototype.__init__ = function (file) {
+Linguist.prototype.__init__ = function (data) {
     this.definitions = ({});
     this.patterns = ({});
-    this._process_file(file);
+    this._process_data(data);
     return null;
+};
+
+Linguist.prototype._process_data = function (data) {
+    var defn, l, line, pattern, stem, stub1_, stub2_seq, stub3_itr;
+    stub2_seq = _pymeth_split.call(data, "\n");
+    if ((typeof stub2_seq === "object") && (!Array.isArray(stub2_seq))) { stub2_seq = Object.keys(stub2_seq);}
+    for (stub3_itr = 0; stub3_itr < stub2_seq.length; stub3_itr += 1) {
+        line = stub2_seq[stub3_itr];
+        l = _pymeth_strip.call(line);
+        stub1_ = _pymeth_split.call(l, "\t");
+        stem = stub1_[0];defn = stub1_[1];
+        this.definitions[stem] = defn;
+        pattern = this._pattern_func(stem);
+        this.patterns[stem] = pattern;
+    }
+    return null;
+};
+
+Linguist.prototype._pattern_func = function flx__pattern_func (stem) {
+    var func, root;
+    stem = _pymeth_lower.call(stem);
+    root = Linguist._strip_dash(stem);
+    if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
+        func = (function flx_func (drugname) {
+            return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);
+        }).bind(this);
+
+    } else if (_pyfunc_truthy((_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))) && ((!_pymeth_startswith.call(stem, "-"))))) {
+        func = (function flx_func (drugname) {
+            return _pymeth_startswith.call(_pymeth_lower.call(drugname), root);
+        }).bind(this);
+
+    } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
+        func = (function flx_func (drugname) {
+            return _pyfunc_op_contains(root, _pymeth_lower.call(drugname));
+        }).bind(this);
+
+    } else {
+        func = (function flx_func (drugname) {
+            return _pyfunc_op_contains(stem, _pymeth_lower.call(drugname));
+        }).bind(this);
+
+    }
+    return func;
 };
 
 Linguist.prototype._strip_dash = function flx__strip_dash (string) {
     return _pymeth_replace.call(string, "-", "");
 };
 
-Linguist.prototype._process_file = function (file) {
-    var defn, f, l, line, pattern, stem, stub1_context, stub2_err, stub3_, stub4_seq, stub5_itr;
-    stub1_context = open(file, "r");
-    f = stub1_context.__enter__();
-    try {
-        stub4_seq = f;
-        if ((typeof stub4_seq === "object") && (!Array.isArray(stub4_seq))) { stub4_seq = Object.keys(stub4_seq);}
-        for (stub5_itr = 0; stub5_itr < stub4_seq.length; stub5_itr += 1) {
-            line = stub4_seq[stub5_itr];
-            l = _pymeth_strip.call(line);
-            stub3_ = _pymeth_split.call(l, "\t");
-            stem = stub3_[0];defn = stub3_[1];
-            this.definitions[stem] = defn;
-            pattern = this._search_pattern(stem);
-            this.patterns[stem] = pattern;
-        }
-    } catch(err_1)  { stub2_err=err_1;
-    } finally {
-        if (stub2_err) { if (!stub1_context.__exit__(stub2_err.name || "error", stub2_err, null)) { throw stub2_err; }
-        } else { stub1_context.__exit__(null, null, null); }
-    }
-    return null;
-};
-
-Linguist.prototype._search_pattern = function flx__search_pattern (stem) {
-    var func, root;
-    stem = _pymeth_lower.call(stem);
-    root = Linguist._strip_dash(stem);
-    if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
-        func = (function (drugname) {return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
-    } else if (_pyfunc_truthy((_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))) && ((!_pymeth_startswith.call(stem, "-"))))) {
-        func = (function (drugname) {return _pymeth_startswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
-    } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
-        func = (function (drugname) {return _pyfunc_op_contains(root, _pymeth_lower.call(drugname));}).bind(this);
-    } else {
-        func = (function (drugname) {return _pyfunc_op_contains(stem, _pymeth_lower.call(drugname));}).bind(this);
-    }
-    return func;
-};
-
-Linguist.prototype._etymology = function (drug) {
-    var matching_roots, out, search_pattern, stem, stub6_seq, stub7_seq, stub8_itr;
+Linguist.prototype.etymology = function (drug) {
+    var matching_roots, out, search_pattern, stem, stub4_seq, stub5_seq, stub6_itr;
     drug = _pymeth_lower.call(drug);
     matching_roots = [];
-    stub6_seq = this.patterns;
-    for (stem in stub6_seq) {
-        if (!stub6_seq.hasOwnProperty(stem)){ continue; }
-        search_pattern = stub6_seq[stem];
+    stub4_seq = this.patterns;
+    for (stem in stub4_seq) {
+        if (!stub4_seq.hasOwnProperty(stem)){ continue; }
+        search_pattern = stub4_seq[stem];
         if (_pyfunc_truthy(search_pattern(drug))) {
             _pymeth_append.call(matching_roots, stem);
         }
     }
     out = ({});
-    stub7_seq = matching_roots;
-    if ((typeof stub7_seq === "object") && (!Array.isArray(stub7_seq))) { stub7_seq = Object.keys(stub7_seq);}
-    for (stub8_itr = 0; stub8_itr < stub7_seq.length; stub8_itr += 1) {
-        stem = stub7_seq[stub8_itr];
+    stub5_seq = matching_roots;
+    if ((typeof stub5_seq === "object") && (!Array.isArray(stub5_seq))) { stub5_seq = Object.keys(stub5_seq);}
+    for (stub6_itr = 0; stub6_itr < stub5_seq.length; stub6_itr += 1) {
+        stem = stub5_seq[stub6_itr];
         out[stem] = this.definitions[stem];
     }
     return out;
@@ -289,7 +293,7 @@ Linguist.prototype._etymology = function (drug) {
 
 Linguist.prototype.explain = function (drug) {
     var lst, out, res;
-    res = this._etymology(drug);
+    res = this.etymology(drug);
     if (_pyfunc_truthy(res)) {
         lst = _pymeth_join.call("\n", ((function list_comprehension (iter0) {var res = [];var stem, defn, i0;if ((typeof iter0 === "object") && (!Array.isArray(iter0))) {iter0 = Object.keys(iter0);}for (i0=0; i0<iter0.length; i0++) {stem = iter0[i0][0]; defn = iter0[i0][1];{res.push(_pymeth_format.call("\t{}:\t{}", stem, defn));}}return res;}).call(this, _pymeth_items.call(res))));
         out = _pymeth_format.call("Possible etymologies for drug {}:\n{}\n", drug, lst);

@@ -9,20 +9,19 @@ from pscript import py2js
 
 class Linguist():
 
-    def __init__(self, file):
+    def __init__(self, data):  # Takes in tsv data as a variable
         self.definitions = {}
         self.patterns = {}
-        self._process_file(file)
+        self._process_data(data)
 
-    def _process_file(self, file):
-        with open(file, 'r') as f:
-            for line in f:
-                l = line.strip()
-                stem, defn = l.split('\t')
-                self.definitions[stem] = defn
+    def _process_data(self, data):
+        for line in data.split('\n'):
+            l = line.strip()
+            stem, defn = l.split('\t')
+            self.definitions[stem] = defn
 
-                pattern = self._pattern_func(stem)
-                self.patterns[stem] = pattern
+            pattern = self._pattern_func(stem)
+            self.patterns[stem] = pattern
 
     @staticmethod
     def _pattern_func(stem):
@@ -69,12 +68,14 @@ class Linguist():
         return out
 
 
-l = Linguist('./stems.tsv')
-with open('main.js', 'w') as f:
-    f.write(py2js(Linguist))
-
-
 if __name__ == '__main__':
+    with open('main.js', 'w') as f:
+        f.write(py2js(Linguist))
+
+    with open('stems.tsv', 'r') as f:
+        data = f.read()
+    l = Linguist(data)
+
     while True:
         d = input('What drug would you like to analyze?\n')
         if d.lower() == 'exit':
