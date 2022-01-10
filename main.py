@@ -10,7 +10,7 @@ from pscript import py2js
 
 class Linguist():
 
-    def __init__(self, data):  # Takes in tsv data as a variable
+    def __init__(self, data):  # Takes in raw tsv data as a string
         self.definitions = {}
         self.patterns = {}
         self._process_data(data)
@@ -45,7 +45,7 @@ class Linguist():
         return string.replace('-', '')
 
     def etymology(self, drug):
-        drug = drug.lower()
+        drug = drug.lower().strip()
         matching_roots = []
 
         for stem, search_pattern in self.patterns.items():

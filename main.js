@@ -271,7 +271,7 @@ Linguist.prototype._strip_dash = function (string) {
 
 Linguist.prototype.etymology = function (drug) {
     var matching_roots, out, search_pattern, stem, stub4_seq, stub5_seq, stub6_itr;
-    drug = _pymeth_lower.call(drug);
+    drug = _pymeth_strip.call(_pymeth_lower.call(drug));
     matching_roots = [];
     stub4_seq = this.patterns;
     for (stem in stub4_seq) {
