@@ -26,7 +26,7 @@ class Linguist():
 
     # @staticmethod
     def _pattern_func(self, stem):
-        stem = stem.lower()
+        stem = stem.lower().strip()
         root = self._strip_dash(stem)
 
         if stem.startswith('-') and not stem.endswith('-'):
