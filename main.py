@@ -3,6 +3,7 @@
 # Data from INN Stembook 2018
 # https://www.who.int/publications/i/item/who-emp-rht-tsn-2018-1
 # https://cdn.who.int/media/docs/default-source/international-nonproprietary-names-(inn)/stembook-2018.pdf?sfvrsn=32a51b3c_6&download=true
+# To update main.js, simply run this python script
 
 from pscript import py2js
 
@@ -62,9 +63,9 @@ class Linguist():
         if res:
             lst = '\n'.join(
                 [f'<li><b>{stem}:</b>&emsp;{defn}</li>' for stem, defn in res.items()])
-            out = (f'Possible etymologies for drug {drug}:\n<ul>{lst}</ul>\n')
+            out = (f'Possible etymologies for drug <b>{drug}</b>:\n<ul>{lst}</ul>\n')
         else:
-            out = (f'No matching etymologies for drug {drug}.\n')
+            out = (f'No matching etymologies for drug <b>{drug}</b>.\n')
         return out
 
 
