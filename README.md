@@ -1,7 +1,7 @@
 # drug-etymology
 Find the etymological roots of generic drug names based on the INN stem list
 
-edridgedsouza.github.io/drug-etymology/
+https://edridgedsouza.github.io/drug-etymology/
 
 Credit to the INN stem list for all roots and definitions: https://www.who.int/publications/i/item/who-emp-rht-tsn-2018-1
 
