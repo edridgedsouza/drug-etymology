@@ -209,7 +209,8 @@ iod-	iodine-containing compounds other than contrast media
 -isant	histamine H3 receptor antagonists
 -isomide	"class I antiarrhythmics, disopyramide derivatives"
 -ium	quaternary ammonium compounds
--izine (-yzine)	diphenylmethyl piperazine derivatives
+-izine	diphenylmethyl piperazine derivatives
+-yzine	diphenylmethyl piperazine derivatives
 -kacin	"antibiotics, kanamycin and bekanamycin derivatives (obtained from Streptomyces kanamyceticus)"
 -kalant	potassium channel blockers
 -kalim	"potassium channel activators, antihypertensive"
@@ -240,7 +241,8 @@ mer-	"mercury-containing drugs, antimicrobial or diuretic (deleted from General 
 -mesine	sigma receptor ligands
 -mestane	aromatase inhibitors
 -metacin	"anti-inflammatory, indometacin derivatives"
--met(h)asone	prednisone and prednisolone derivatives
+-metasone	prednisone and prednisolone derivatives
+-methasone	prednisone and prednisolone derivatives
 -metinib	MEK (MAPK: mitogen activated protein kinase) tyrosine kinase inhibitors
 -micin	"aminoglycosides, antibiotics obtained from various Micromonospora"
 -mifene	"antiestrogens, clomifene and tamoxifen derivatives"
@@ -304,7 +306,8 @@ orphan	"opioid receptor antagonists/agonists, morphinan derivates"
 -ox	"antacids, aluminium derivatives"
 -alox	"antacids, aluminium derivatives"
 -oxacin	"antibacterials, nalidixic acid derivatives"
--oxan(e)	benzodioxane derivatives
+-oxan	benzodioxane derivatives
+-oxane	benzodioxane derivatives
 -oxanide	"antiparasitics, salicylanilides and analogues"
 -oxef	"antibiotics, oxacefalosporanic acid derivatives"
 -oxepin	tricyclic compounds
@@ -362,7 +365,8 @@ pred	prednisone and prednisolone derivatives
 prost	prostaglandins
 -prostil	"prostaglandins, anti-ulcer"
 -quidar	"drugs used in multidrug resistance, quinoline derivatives"
--quin(e)	quinoline derivatives (deleted from General Principles in List 28 prop. INN)
+-quin	quinoline derivatives (deleted from General Principles in List 28 prop. INN)
+-quine	quinoline derivatives (deleted from General Principles in List 28 prop. INN)
 -quinil	"benzodiazepine receptor agonists, also partial or inverse (quinoline derivatives)"
 -racetam	"amide type nootrope agents, piracetam derivatives"
 -racil	uracil type antineoplastics
