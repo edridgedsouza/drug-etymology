@@ -45,7 +45,7 @@ class Linguist():
         return string.replace('-', '')
 
     def etymology(self, drug):
-        drug = drug.lower()
+        drug = drug.lower().strip()
         matching_roots = []
 
         for stem, search_pattern in self.patterns.items():
