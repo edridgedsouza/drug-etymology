@@ -61,8 +61,8 @@ class Linguist():
     def explain(self, drug):
         res = self.etymology(drug)
         if res:
-            lst = '\n'.join(
-                [f'<li><b>{stem}:</b>&emsp;{defn}</li>' for stem, defn in res.items()])
+            lst = '\n'.join([f'<li><b>{stem}:</b>&emsp;{defn}</li>' 
+                            for stem, defn in res.items()])
             out = (f'Possible etymologies for drug <b>{drug}</b>:\n<ul>{lst}</ul>\n')
         else:
             out = (f'No matching etymologies for drug <b>{drug}</b>.\n')

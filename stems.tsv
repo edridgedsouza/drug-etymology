@@ -43,10 +43,10 @@ arte-	"antimalarial agents, artemisinin related compounds"
 -azone	"anti-inflammatory analgesics, phenylbutazone derivatives"
 -azosin	"antihypertensive substances, prazosin derivatives"
 -bacept	B-cell activating factor receptors
--bactam	?-lactamase inhibitors
+-bactam	beta-lactamase inhibitors
 -bamate	"tranquillizers, propanediol and pentanediol derivatives"
 barb	"hypnotics, barbituric acid derivatives"
--begron	?3-adrenoreceptor agonists
+-begron	beta3-adrenoreceptor agonists
 -benakin	interleukin-1 analogues and derivatives
 -bendan	"cardiac stimulants, pimobendan derivatives"
 -bendazole	"anthelminthics, tiabendazole derivatives"
@@ -144,7 +144,7 @@ estr	estrogens
 -exine	"mucolytic, bromhexine derivatives"
 -farcept	subgroup of interferon receptors
 -fenacin	muscarinic receptor antagonists
--fenamate	�fenamic acid� derivatives
+-fenamate	"fenamic acid" derivatives
 -fenamic acid	"anti-inflammatory, anthranilic acid derivatives"
 -fenin	diagnostic aids; (phenylcarbamoyl)methyl iminodiacetic acid derivatives
 -fenine	"analgesics, glafenine derivatives (subgroup of fenamic acid group)"
@@ -153,7 +153,7 @@ estr	estrogens
 -fentrine	inhibitors of phosphodiesterases
 -fermin	fibroblast growth factors
 -fiban	fibrinogen receptor antagonists (glycoprotein IIb/ IIIa receptor antagonists)
--fibrate	"clofibrate derivatives, peroxisome proliferator activated receptor-? (PPAR-?) agonists"
+-fibrate	"clofibrate derivatives, peroxisome proliferator activated receptor-alpha (PPAR-alpha) agonists"
 -filermin	leukemia-inhibiting factor
 -flapon	5-lipoxygenase-activating protein (FLAP) inhibitor
 -flurane	halogenated compounds used as general inhalation anaesthetics
@@ -178,9 +178,9 @@ gest	"steroids, progestogens"
 -gillin	antibiotics produced by Aspergillus strains
 gli	antihyperglycaemics
 -gliflozin	"sodium glucose co-transporter inhibitors, phlorizin derivatives"
--gliptin	dipeptidyl aminopeptidase�IV inhibitors
--glitazar	"dual peroxisome proliferator activated receptors-? and ? (PPAR- ?,?) agonists"
--glitazone	"peroxisome proliferator activating receptor-? (PPAR-?) agonists, thiazolidinedione derivatives"
+-gliptin	dipeptidyl aminopeptidase-IV inhibitors
+-glitazar	"dual peroxisome proliferator activated receptors-alpha and gamma (PPAR-alpha,gamma) agonists"
+-glitazone	"peroxisome proliferator activating receptor-gamma (PPAR-gamma) agonists, thiazolidinedione derivatives"
 -glumide	"cholecystokinin (CCK) antagonists, antiulcer, anxiolytic agent"
 -glurant	metabotropic glutamate receptor antagonists/ negative allosteric modulators
 -glutide	Glucagon-Like Peptide (GLP) analogues
@@ -191,7 +191,7 @@ gli	antihyperglycaemics
 -grel-	platelet aggregation inhibitors
 -grel	platelet aggregation inhibitors
 guan-	"antihypertensives, guanidine derivatives"
--ibine	ribofuranyl-derivatives of the �pyrazofurin� type
+-ibine	ribofuranyl-derivatives of the "pyrazofurin" type
 -icam	"anti-inflammatory, isoxicam derivatives"
 -ifene	"antiestrogens or estrogen receptor modulators, clomifene and tamoxifen derivatives"
 -igetide	peptides and glycopeptides
@@ -234,7 +234,7 @@ iod-	iodine-containing compounds other than contrast media
 -mantone	adamantane derivatives
 -mapimod	mitogen-activated protein (MAP) kinase inhibitors
 -mastat	matrix metalloproteinase inhibitors
--meline	cholinergic agents (muscarine receptor agonists/ partial antagonists used in the treatment of Alzheimer�s disease)
+-meline	cholinergic agents (muscarine receptor agonists/ partial antagonists used in the treatment of Alzheimer's disease)
 mer-	"mercury-containing drugs, antimicrobial or diuretic (deleted from General Principles in List 28 prop. INN)"
 -mer	"mercury-containing drugs, antimicrobial or diuretic (deleted from General Principles in List 28 prop. INN)"
 -mer	polymers
@@ -255,7 +255,7 @@ mito-	"antineoplastics, nucleotoxic agents (deleted from General Principles in L
 -motine	"antivirals, quinoline derivatives"
 -moxin	"monoamine oxidase inhibitors, hydrazine derivatives"
 -mulin	"antibacterials, pleuromulin derivatives"
--mustine	"antineoplastic, alkylating agents, (?-chloroethyl) amine derivatives"
+-mustine	"antineoplastic, alkylating agents, (beta-chloroethyl) amine derivatives"
 -mycin	"antibiotics, produced by Streptomyces strains (see also -kacin)"
 nab	cannabinoid receptors agonists
 -nabant 	cannabinoid receptors antagonists
@@ -290,7 +290,7 @@ octakin	interleukin-8 analogues and derivatives
 -octadekin	interleukin-18 human analogues and derivatives
 -octocog	blood factor VIII
 -ol	for alcohols and phenols (deleted from General Principles in 14th Report)
--olol	?-adrenoreceptor antagonists
+-olol	beta-adrenoreceptor antagonists
 -olone	steroids other than prednisolone derivatives
 -onakin	interleukin-1 analogues and derivatives
 -one	ketones
@@ -328,7 +328,7 @@ perfl-	perfluorinated compounds used as blood substitutes and/or diagnostic agen
 perflu-	perfluorinated compounds used as blood substitutes and/or diagnostic agents
 -peridol	"antipsychotics, haloperidol derivatives"
 -peridone	"antipsychotics, risperidone derivatives"
--perone	"tranquillizers, neuroleptics, 4�-fluoro-4piperidinobutyrophenone derivatives"
+-perone	"tranquillizers, neuroleptics, 4'-fluoro-4piperidinobutyrophenone derivatives"
 -pidem	"hypnotics/sedatives, zolpidem derivatives"
 -pin	tricyclic compounds
 -pine	tricyclic compounds
@@ -377,7 +377,7 @@ prost	prostaglandins
 -reotide	somatostatin receptor agonists/antagonists
 -restat	aldose reductase inhibitors
 retin	retinol derivatives
--ribine	ribofuranyl-derivatives of the �pyrazofurin� type
+-ribine	ribofuranyl-derivatives of the "pyrazofurin" type
 rifa-	"antibiotics, rifamycin derivatives"
 -rinone	"cardiac stimulants, amrinone derivatives"
 -ritide	natriuretic peptides
