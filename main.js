@@ -239,7 +239,7 @@ Linguist.prototype._process_data = function (data) {
 
 Linguist.prototype._pattern_func = function (stem) {
     var func, root;
-    stem = _pymeth_lower.call(stem);
+    stem = _pymeth_strip.call(_pymeth_lower.call(stem));
     root = this._strip_dash(stem);
     if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
         func = (function flx_func (drugname) {
@@ -270,22 +270,28 @@ Linguist.prototype._strip_dash = function (string) {
 };
 
 Linguist.prototype.etymology = function (drug) {
-    var matching_roots, out, search_pattern, stem, stub4_seq, stub5_seq, stub6_itr;
-    drug = _pymeth_strip.call(_pymeth_lower.call(drug));
+    var matching_roots, out, search_pattern, stem, stub4_, stub4_i0, stub4_iter0, stub4_word, stub5_seq, stub6_seq, stub7_itr, stub8_seq, stub9_itr, word;
+    stub4_ = [];stub4_iter0 = _pymeth_split.call(((_pymeth_replace.call(_pymeth_lower.call(drug), "-", " "))), " ");if ((typeof stub4_iter0 === "object") && (!Array.isArray(stub4_iter0))) {stub4_iter0 = Object.keys(stub4_iter0);}for (stub4_i0=0; stub4_i0<stub4_iter0.length; stub4_i0++) {stub4_word = stub4_iter0[stub4_i0];{stub4_.push(_pymeth_strip.call(stub4_word));}}
+    drug = stub4_;
     matching_roots = [];
-    stub4_seq = this.patterns;
-    for (stem in stub4_seq) {
-        if (!stub4_seq.hasOwnProperty(stem)){ continue; }
-        search_pattern = stub4_seq[stem];
-        if (_pyfunc_truthy(search_pattern(drug))) {
-            _pymeth_append.call(matching_roots, stem);
+    stub6_seq = drug;
+    if ((typeof stub6_seq === "object") && (!Array.isArray(stub6_seq))) { stub6_seq = Object.keys(stub6_seq);}
+    for (stub7_itr = 0; stub7_itr < stub6_seq.length; stub7_itr += 1) {
+        word = stub6_seq[stub7_itr];
+        stub5_seq = this.patterns;
+        for (stem in stub5_seq) {
+            if (!stub5_seq.hasOwnProperty(stem)){ continue; }
+            search_pattern = stub5_seq[stem];
+            if (_pyfunc_truthy(search_pattern(word))) {
+                _pymeth_append.call(matching_roots, stem);
+            }
         }
     }
     out = ({});
-    stub5_seq = matching_roots;
-    if ((typeof stub5_seq === "object") && (!Array.isArray(stub5_seq))) { stub5_seq = Object.keys(stub5_seq);}
-    for (stub6_itr = 0; stub6_itr < stub5_seq.length; stub6_itr += 1) {
-        stem = stub5_seq[stub6_itr];
+    stub8_seq = matching_roots;
+    if ((typeof stub8_seq === "object") && (!Array.isArray(stub8_seq))) { stub8_seq = Object.keys(stub8_seq);}
+    for (stub9_itr = 0; stub9_itr < stub8_seq.length; stub9_itr += 1) {
+        stem = stub8_seq[stub9_itr];
         out[stem] = this.definitions[stem];
     }
     return out;

@@ -45,12 +45,16 @@ class Linguist():
         return string.replace('-', '')
 
     def etymology(self, drug):
-        drug = drug.lower().strip()
+        # Split drug name into words and analyze each individually
+        drug = [word.strip() 
+                for word in 
+                drug.lower().replace('-', ' ').split(' ')]
         matching_roots = []
 
-        for stem, search_pattern in self.patterns.items():
-            if search_pattern(drug):
-                matching_roots.append(stem)
+        for word in drug:
+            for stem, search_pattern in self.patterns.items():
+                if search_pattern(word):
+                    matching_roots.append(stem)
 
         out = {}  # py2js can't handle a dict comp
         for stem in matching_roots:
@@ -63,9 +67,11 @@ class Linguist():
         if res:
             lst = '\n'.join([f'<li><b>{stem}:</b>&emsp;{defn}</li>' 
                             for stem, defn in res.items()])
-            out = (f'Possible etymologies for drug <b>{drug}</b>:\n<ul>{lst}</ul>\n')
+            out = (f'Possible etymologies for drug '
+                   f'<b>{drug}</b>:\n<ul>{lst}</ul>\n')
         else:
-            out = (f'No matching etymologies for drug <b>{drug}</b>.\n')
+            out = (f'No matching etymologies for drug '
+                   f'<b>{drug}</b>.\n')
         return out
 
 
