@@ -30,13 +30,13 @@ class Linguist():
         root = self._strip_dash(stem)
 
         if stem.startswith('-') and not stem.endswith('-'):
-            def func(drugname): return drugname.lower().endswith(root)
+            func = lambda drugname: drugname.lower().endswith(root)
         elif stem.endswith('-') and not stem.startswith('-'):
-            def func(drugname): return drugname.lower().startswith(root)
+            func = lambda drugname: drugname.lower().startswith(root)
         elif stem.startswith('-') and stem.endswith('-'):
-            def func(drugname): return root in drugname.lower()
+            func = lambda drugname: root in drugname.lower()
         else:
-            def func(drugname): return stem in drugname.lower()
+            func = lambda drugname: stem in drugname.lower()
 
         return func
 

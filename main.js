@@ -242,25 +242,13 @@ Linguist.prototype._pattern_func = function (stem) {
     stem = _pymeth_strip.call(_pymeth_lower.call(stem));
     root = this._strip_dash(stem);
     if ((_pymeth_startswith.call(stem, "-") && ((!_pyfunc_truthy(_pymeth_endswith.call(stem, "-")))))) {
-        func = (function flx_func (drugname) {
-            return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);
-        }).bind(this);
-
+        func = (function (drugname) {return _pymeth_endswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
     } else if (_pyfunc_truthy((_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))) && ((!_pymeth_startswith.call(stem, "-"))))) {
-        func = (function flx_func (drugname) {
-            return _pymeth_startswith.call(_pymeth_lower.call(drugname), root);
-        }).bind(this);
-
+        func = (function (drugname) {return _pymeth_startswith.call(_pymeth_lower.call(drugname), root);}).bind(this);
     } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
-        func = (function flx_func (drugname) {
-            return _pyfunc_op_contains(root, _pymeth_lower.call(drugname));
-        }).bind(this);
-
+        func = (function (drugname) {return _pyfunc_op_contains(root, _pymeth_lower.call(drugname));}).bind(this);
     } else {
-        func = (function flx_func (drugname) {
-            return _pyfunc_op_contains(stem, _pymeth_lower.call(drugname));
-        }).bind(this);
-
+        func = (function (drugname) {return _pyfunc_op_contains(stem, _pymeth_lower.call(drugname));}).bind(this);
     }
     return func;
 };
