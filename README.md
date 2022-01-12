@@ -5,7 +5,8 @@ https://edridgedsouza.github.io/drug-etymology/
 
 Example use:
 
-![drug-etymology](https://user-images.githubusercontent.com/19752149/149030970-5d5265ec-3c6c-4655-ab90-63cc7b2aa8e5.gif)
+![drug-etymology](https://user-images.githubusercontent.com/19752149/149041823-df309f09-253a-4c57-acce-bdfde6b6c322.gif)
+
 
 
 Caveat: these are not perfectly accurate. For instance, "penicillin" is marked as an NO2 derivative because of the -ni- substring, and "estradiol" is marked as an iodine containing compound because of the -io- substring. This is not meant to be a definitive list but a best guess based on the published INN guide.
