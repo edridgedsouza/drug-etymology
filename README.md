@@ -3,9 +3,10 @@ Find the etymological roots of generic drug names based on the INN stem list
 
 https://edridgedsouza.github.io/drug-etymology/
 
-Example screenshot:
+Example use:
 
-![image](https://user-images.githubusercontent.com/19752149/148812686-59e00c0f-307e-4114-bca4-92ec010a03d5.png)
+![drug-etymology](https://user-images.githubusercontent.com/19752149/149030970-5d5265ec-3c6c-4655-ab90-63cc7b2aa8e5.gif)
+
 
 Caveat: these are not perfectly accurate. For instance, "penicillin" is marked as an NO2 derivative because of the -ni- substring, and "estradiol" is marked as an iodine containing compound because of the -io- substring. This is not meant to be a definitive list but a best guess based on the published INN guide.
 
