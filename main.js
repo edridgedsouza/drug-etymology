@@ -291,8 +291,10 @@ Linguist.prototype.explain = function (drug) {
     if (_pyfunc_truthy(res)) {
         lst = _pymeth_join.call("\n", ((function list_comprehension (iter0) {var res = [];var stem, defn, i0;if ((typeof iter0 === "object") && (!Array.isArray(iter0))) {iter0 = Object.keys(iter0);}for (i0=0; i0<iter0.length; i0++) {stem = iter0[i0][0]; defn = iter0[i0][1];{res.push(_pymeth_format.call("<li><b>{}:</b>&emsp;{}</li>", stem, defn));}}return res;}).call(this, _pymeth_items.call(res))));
         out = _pymeth_format.call("Possible etymologies for drug <b>{}</b>:\n<ul>{}</ul>\n", drug, lst);
-    } else {
+    } else if (_pyfunc_truthy(_pymeth_strip.call(drug))) {
         out = _pymeth_format.call("No matching etymologies for drug <b>{}</b>.\n", drug);
+    } else {
+        out = "Please enter a generic drug name.";
     }
     return out;
 };

@@ -70,8 +70,11 @@ class Linguist():
             out = (f'Possible etymologies for drug '
                    f'<b>{drug}</b>:\n<ul>{lst}</ul>\n')
         else:
-            out = (f'No matching etymologies for drug '
-                   f'<b>{drug}</b>.\n')
+            if drug.strip():
+                out = (f'No matching etymologies for drug '
+                    f'<b>{drug}</b>.\n')
+            else:
+                out = 'Please enter a generic drug name.'
         return out
 
 
