@@ -86,10 +86,31 @@
         function analyze() {
             var l = new Linguist(stem_data);
 
-            var drugname = document.getElementById('dname').value;
+            var drugname = document.getElementById('dname')
+                .value.trim().toLowerCase();
             var out = document.getElementById("output");
 
             var out_text = l.explain(drugname);
+            // Now add wikipedia info
+
+            for (i in med_list) {
+                med_name = med_list[i]['name'].toLowerCase();
+                if (med_name.includes(drugname)) {
+                    out_text += '\n<b>Drug name:</b> ' + med_list[i]['name']
+                    out_text += '<ul>'
+                    out_text += '\n<li><b>Brand name:</b> ' + med_list[i]['brand_name'] + ' </li>'
+                    out_text += '\n<li><b>Antibody type:</b> ' + med_list[i]['type'] + ' </li>'
+                    out_text += '\n<li><b>Source:</b> ' + med_list[i]['source'] + ' </li>'
+                    out_text += '\n<li><b>Antibody target:</b> ' + med_list[i]['target'] + ' </li>'
+                    out_text += '\n<li><b>Approval status:</b> ' + med_list[i]['approved'] + ' </li>'
+                    out_text += '\n<li><b>Use:</b> ' + med_list[i]['use'] + ' </li>'
+                    out_text += '</ul>'
+
+                }
+            }
+
+
+
             out.innerHTML = out_text; // Warning: technically not sanitized
         }
     </script>
@@ -101,20 +122,20 @@
         <section style='margin-top: 5rem'>
             <div class="row">
                 <div class="twelve columns">
-                    <h1 class='header'>Generic Drug Etymology Search</h1>
+                    <h1 class='header'>Generic mAb Etymology Search</h1>
                 </div>
             </div>
         </section>
         <div class="row">
             <div class="twelve columns">
-                Enter a drug name to guess possible etymologies based on the 2018 INN <a href="https://www.who.int/publications/i/item/who-emp-rht-tsn-2018-1">stem book</a>. Autocomplete based on 2021 WHO Essential Medicine <a href="https://www.who.int/publications/i/item/WHO-MHP-HPS-EML-2021.02">List</a>.
-                If you like this tool and want to modify it, the code is available on my <a href="https://github.com/edridgedsouza/drug-etymology">GitHub</a>.
+                Enter a monoclonal antibody name to guess possible etymologies. For drugs in general, check the <a href='https://edridgedsouza.github.io/drug-etymology/'>generic drug search page.</a>. If you like this tool and want to modify it, the code
+                is available on my <a href="https://github.com/edridgedsouza/drug-etymology">GitHub</a>.
                 <br /><br />
             </div>
         </div>
         <div class="row">
             <div class="eight columns">
-                <input class='u-full-width' type="text" id="dname" name="dname" placeholder="Drug name" style='margin-bottom:0px'>
+                <input class='u-full-width' type="text" id="dname" name="dname" placeholder="mAb name" style='margin-bottom:0px'>
                 <div class="autocomplete"></div>
             </div>
             <div class="two columns">
