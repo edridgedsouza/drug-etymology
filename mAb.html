@@ -58,15 +58,15 @@
     </style>
 
 
-    <script src='main_mab.js'></script>
+    <script src='./scripts/main_mab.js'></script>
     <script>
         var stem_data;
         var med_list;
-        fetch('./mAb_stems.tsv')
+        fetch('./data/mAb_stems.tsv')
             .then(response => response.text())
             .then(data => stem_data = data)
             .then(() => console.log(stem_data));
-        fetch('./mAbs.tsv')
+        fetch('./data/mAbs.tsv')
             .then(response => response.text())
             .then(data => med_list = data.split('\n').map(x => {
                 data = x.replace('\r', '').split('\t');
@@ -96,16 +96,15 @@
             for (i in med_list) {
                 med_name = med_list[i]['name'].toLowerCase();
                 if (med_name.includes(drugname)) {
-                    out_text += '\n<b>Drug name:</b> ' + med_list[i]['name']
-                    out_text += '<ul>'
-                    out_text += '\n<li><b>Brand name:</b> ' + med_list[i]['brand_name'] + ' </li>'
-                    out_text += '\n<li><b>Antibody type:</b> ' + med_list[i]['type'] + ' </li>'
-                    out_text += '\n<li><b>Source:</b> ' + med_list[i]['source'] + ' </li>'
-                    out_text += '\n<li><b>Antibody target:</b> ' + med_list[i]['target'] + ' </li>'
-                    out_text += '\n<li><b>Approval status:</b> ' + med_list[i]['approved'] + ' </li>'
-                    out_text += '\n<li><b>Use:</b> ' + med_list[i]['use'] + ' </li>'
-                    out_text += '</ul>'
-
+                    out_text += '\n<b>Drug name:</b> ' + med_list[i]['name'] +
+                        '<ul>' +
+                        '\n<li><b>Brand name:</b> ' + med_list[i]['brand_name'] + ' </li>' +
+                        '\n<li><b>Antibody type:</b> ' + med_list[i]['type'] + ' </li>' +
+                        '\n<li><b>Source:</b> ' + med_list[i]['source'] + ' </li>' +
+                        '\n<li><b>Antibody target:</b> ' + med_list[i]['target'] + ' </li>' +
+                        '\n<li><b>Approval status:</b> ' + med_list[i]['approved'] + ' </li>' +
+                        '\n<li><b>Use:</b> ' + med_list[i]['use'] + ' </li>' +
+                        '</ul>'
                 }
             }
 

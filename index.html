@@ -58,15 +58,15 @@
     </style>
 
 
-    <script src='main.js'></script>
+    <script src='./scripts/main.js'></script>
     <script>
         var stem_data;
         var med_list;
-        fetch('./stems.tsv')
+        fetch('./data/stems.tsv')
             .then(response => response.text())
             .then(data => stem_data = data)
             .then(() => console.log(stem_data));
-        fetch('./essential_meds_2021.tsv')
+        fetch('./data/essential_meds_2021.tsv')
             .then(response => response.text())
             .then(data => med_list = data.split('\n').map(x => x.trim()))
             .then(() => console.log(med_list));
