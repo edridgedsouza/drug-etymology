@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
-# Data from INN Stembook 2018
-# https://www.who.int/publications/i/item/who-emp-rht-tsn-2018-1
-# https://cdn.who.int/media/docs/default-source/international-nonproprietary-names-(inn)/stembook-2018.pdf?sfvrsn=32a51b3c_6&download=true
-# To update main.js, simply run this python script
+# To update main_mab.js, simply run this python script
 
 from pscript import py2js
 
@@ -34,7 +31,24 @@ class Linguist():
         elif stem.endswith('-') and not stem.startswith('-'):
             func = lambda drugname: drugname.lower().startswith(root)
         elif stem.startswith('-') and stem.endswith('-'):
-            func = lambda drugname: root in drugname.lower()
+            def func(drugname):
+                # This isn't perfect. Example: -vimab antivirals now only
+                # get recognized by the stem -v- instead of -vi-
+                drugbase = (drugname
+                            .replace('amab', '')
+                            .replace('emab', '')
+                            .replace('imab', '')
+                            .replace('omab', '')
+                            .replace('umab', '')
+                            .replace('ximab', '')
+                            .replace('zumab', '')
+                            .replace('vimab', '')
+                            .replace('xizumab', '')
+                            .replace('axomab', '')
+                            .replace('vetmab', '')
+                            .replace('mab', ''))
+
+                return root in drugbase.lower()
         else:
             func = lambda drugname: stem in drugname.lower()
 
@@ -91,10 +105,10 @@ right_code = """var _pymeth_endswith = function (x) { // nargs: 1
 };"""
 
 if __name__ == '__main__':
-    with open('main.js', 'w') as f:
+    with open('main_mab.js', 'w') as f:
         f.write(py2js(Linguist).replace(wrong_code, right_code))
 
-    with open('stems.tsv', 'r') as f:
+    with open('mAb_stems.tsv', 'r') as f:
         data = f.read()
     l = Linguist(data)
 

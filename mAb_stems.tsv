@@ -1,67 +1,67 @@
--ami-   serum amyloid protein
-(SAP)/amyloidosis
--anibi- angiogenesis (inhibitor)
--ba-    bacterial
--bac-   bacterial (~1993)
--b- bacterial (2009-2017)
--ci-    cardiovascular
--cir-   cardiovascular (~1993)
--c- cardiovascular (2009-2017)
--de-    endocrine
--d- endocrine (pre-2017)
--eni-   enzyme inhibition
--fung-  fungal
--f- fungal (2009-2017)
--gro-   skeletal muscle mass related growth factors
--gros-  skeletal muscle mass related growth factors
--gr-    skeletal muscle mass related growth factors (~1993)
--kin-   formerly: interleukin; from 2020: cytokine and cytokine receptor
--ki-    formerly: interleukin; from 2020: cytokine and cytokine receptor
--k- formerly: interleukin; from 2020: cytokine and cytokine receptor
--les-   inflammatory lesions (~1993)
--lim-   immunomodulating
--li-    immunomodulating
--l- immunomodulating (2009-2017)
--ler-   immunomodulating; allergen
--pru-   immunomodulating; immunosuppressive
--sto-   immunomodulating; immunostimulatory
--mul-   musculoskeletal system
--neur-  	neural (nervous system)
--neu-   	neural (nervous system)
--ne-    	neural (nervous system)
--n- 	neural (nervous system) (2009-2017)
--os-    bone
--so-    bone (2009-2017)
--s- bone (2009-2017)
--col-   colonic tumor (~1993)
--co-    colonic tumor (~1993)
--got-   testicular tumor (~1993)
--go-   testicular tumor (~1993)
--gov-      ovarian tumor (~1993)
--go-      ovarian tumor (~1993)
--mar-      mammary tumor (~1993)
--ma-      mammary tumor (~1993)
--mel-      melanoma (~1993)
--me-      melanoma (~1993)
--pro-      prostate tumor (~1993)
--pr-      prostate tumor (~1993)
--tum-      misc. tumor (~1993)
--tu-      misc tumor (~1993)
--t- misc. tumor (2009-2017)
--ta-    tumor (2017-present)
--toxa-  toxin
--tox-   toxin (2009-2017)
--vet-   veterinary use
--vir-   viral
--vi-    viral
--v- viral (2009-2017)
--amab   rat
--emab   hamster
--imab   primate
--omab   mouse
--umab   human
--ximab  chimeric (human/foreign)
--zumab  humanized
--xizumab    chimeric and humanized hybrid
--axomab rat/mouse hybrid
--vetmab veterinary use
+-ami-	serum amyloid protein (SAP)/amyloidosis
+-anibi-	angiogenesis (inhibitor)
+-ba-	bacterial
+-bac-	bacterial (~1993)
+-b-	bacterial (2009-2017)
+-ci-	cardiovascular
+-cir-	cardiovascular (~1993)
+-c-	cardiovascular (2009-2017)
+-de-	endocrine
+-d-	endocrine (pre-2017)
+-eni-	enzyme inhibition
+-fung-	fungal
+-f-	fungal (2009-2017)
+-gro-	skeletal muscle mass related growth factors
+-gros-	skeletal muscle mass related growth factors
+-gr-	skeletal muscle mass related growth factors (~1993)
+-kin-	formerly: interleukin; from 2020: cytokine and cytokine receptor
+-ki-	formerly: interleukin; from 2020: cytokine and cytokine receptor
+-k-	formerly: interleukin; from 2020: cytokine and cytokine receptor
+-les-	inflammatory lesions (~1993)
+-lim-	immunomodulating
+-li-	immunomodulating
+-l-	immunomodulating (2009-2017)
+-ler-	immunomodulating; allergen
+-pru-	immunomodulating; immunosuppressive
+-sto-	immunomodulating; immunostimulatory
+-mul-	musculoskeletal system
+-neur-	neural (nervous system)
+-neu-	neural (nervous system)
+-ne-	neural (nervous system)
+-n-	neural (nervous system) (2009-2017)
+-os-	bone
+-so-	bone (2009-2017)
+-s-	bone (2009-2017)
+-col-	colonic tumor (~1993)
+-co-	colonic tumor (~1993)
+-got-	testicular tumor (~1993)
+-go-	testicular tumor (~1993)
+-gov-	ovarian tumor (~1993)
+-go-	ovarian tumor (~1993)
+-mar-	mammary tumor (~1993)
+-ma-	mammary tumor (~1993)
+-mel-	melanoma (~1993)
+-me-	melanoma (~1993)
+-pro-	prostate tumor (~1993)
+-pr-	prostate tumor (~1993)
+-tum-	misc. tumor (~1993)
+-tu-	misc tumor (~1993)
+-t-	misc. tumor (2009-2017)
+-ta-	tumor (2017-present)
+-toxa-	toxin
+-tox-	toxin (2009-2017)
+-vet-	veterinary use
+-vir-	viral
+-vi-	viral
+-v-	viral (2009-2017)
+-amab	rat
+-emab	hamster
+-imab	primate
+-omab	mouse
+-umab	human
+-vimab	antiviral
+-ximab	chimeric (human/foreign)
+-zumab	humanized
+-xizumab	chimeric and humanized hybrid
+-axomab	rat/mouse hybrid
+-vetmab	veterinary use

@@ -58,7 +58,7 @@
     </style>
 
 
-    <script src='main.js'></script>
+    <script src='main_mab.js'></script>
     <script>
         var stem_data;
         var med_list;
@@ -165,7 +165,6 @@
                 /*for each item in the array...*/
                 for (const item in med_list) {
                     med_name = med_list[item]['name'];
-                    console.log(med_name);
                     /*check if the item starts with the same letters as the text field value:*/
                     if (med_name.toUpperCase().includes(val.toUpperCase())) {
                         /*create a DIV element for each matching element:*/
