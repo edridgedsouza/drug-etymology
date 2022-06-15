@@ -248,7 +248,7 @@ Linguist.prototype._pattern_func = function (stem) {
     } else if ((_pymeth_startswith.call(stem, "-") && (_pyfunc_truthy(_pymeth_endswith.call(stem, "-"))))) {
         func = (function flx_func (drugname) {
             var drugbase;
-            drugbase = _pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(_pymeth_replace.call(drugname, "amab", ""), "emab", ""))), "imab", ""))), "omab", ""))), "umab", ""))), "ximab", ""))), "zumab", ""))), "xizumab", ""))), "axomab", ""))), "vetmab", ""))), "mab", "");
+            drugbase = _pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(((_pymeth_replace.call(_pymeth_replace.call(drugname, "amab", ""), "emab", ""))), "imab", ""))), "omab", ""))), "umab", ""))), "ximab", ""))), "zumab", ""))), "vimab", ""))), "xizumab", ""))), "axomab", ""))), "vetmab", ""))), "mab", "");
             return _pyfunc_op_contains(root, _pymeth_lower.call(drugbase));
         }).bind(this);
 
@@ -295,9 +295,9 @@ Linguist.prototype.explain = function (drug) {
     res = this.etymology(drug);
     if (_pyfunc_truthy(res)) {
         lst = _pymeth_join.call("\n", ((function list_comprehension (iter0) {var res = [];var stem, defn, i0;if ((typeof iter0 === "object") && (!Array.isArray(iter0))) {iter0 = Object.keys(iter0);}for (i0=0; i0<iter0.length; i0++) {stem = iter0[i0][0]; defn = iter0[i0][1];{res.push(_pymeth_format.call("<li><b>{}:</b>&emsp;{}</li>", stem, defn));}}return res;}).call(this, _pymeth_items.call(res))));
-        out = _pymeth_format.call("Possible etymologies for drug <b>{}</b>:\n<ul>{}</ul>\n", drug, lst);
+        out = _pymeth_format.call("Possible etymologies for drug <b>{}</b>:\n<ul>{}</ul><br />", drug, lst);
     } else if (_pyfunc_truthy(_pymeth_strip.call(drug))) {
-        out = _pymeth_format.call("No matching etymologies for drug <b>{}</b>.\n", drug);
+        out = _pymeth_format.call("No matching etymologies for drug <b>{}</b>.<br />", drug);
     } else {
         out = "Please enter a generic drug name.";
     }

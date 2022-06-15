@@ -259,7 +259,7 @@ Linguist.prototype._strip_dash = function (string) {
 
 Linguist.prototype.etymology = function (drug) {
     var matching_roots, out, search_pattern, stem, stub4_, stub4_i0, stub4_iter0, stub4_word, stub5_seq, stub6_seq, stub7_itr, stub8_seq, stub9_itr, word;
-    stub4_ = [];stub4_iter0 = _pymeth_split.call(((_pymeth_replace.call(_pymeth_lower.call(drug), "-", " "))), " ");if ((typeof stub4_iter0 === "object") && (!Array.isArray(stub4_iter0))) {stub4_iter0 = Object.keys(stub4_iter0);}for (stub4_i0=0; stub4_i0<stub4_iter0.length; stub4_i0++) {stub4_word = stub4_iter0[stub4_i0];{stub4_.push(_pymeth_strip.call(stub4_word));}}
+    stub4_ = [];stub4_iter0 = _pymeth_split.call(((_pymeth_replace.call(((_pymeth_replace.call(_pymeth_lower.call(drug), "/", " "))), "-", " "))), " ");if ((typeof stub4_iter0 === "object") && (!Array.isArray(stub4_iter0))) {stub4_iter0 = Object.keys(stub4_iter0);}for (stub4_i0=0; stub4_i0<stub4_iter0.length; stub4_i0++) {stub4_word = stub4_iter0[stub4_i0];{stub4_.push(_pymeth_strip.call(stub4_word));}}
     drug = stub4_;
     matching_roots = [];
     stub6_seq = drug;
@@ -290,9 +290,9 @@ Linguist.prototype.explain = function (drug) {
     res = this.etymology(drug);
     if (_pyfunc_truthy(res)) {
         lst = _pymeth_join.call("\n", ((function list_comprehension (iter0) {var res = [];var stem, defn, i0;if ((typeof iter0 === "object") && (!Array.isArray(iter0))) {iter0 = Object.keys(iter0);}for (i0=0; i0<iter0.length; i0++) {stem = iter0[i0][0]; defn = iter0[i0][1];{res.push(_pymeth_format.call("<li><b>{}:</b>&emsp;{}</li>", stem, defn));}}return res;}).call(this, _pymeth_items.call(res))));
-        out = _pymeth_format.call("Possible etymologies for drug <b>{}</b>:\n<ul>{}</ul>\n", drug, lst);
+        out = _pymeth_format.call("Possible etymologies for drug <b>{}</b>:\n<ul>{}</ul><br />", drug, lst);
     } else if (_pyfunc_truthy(_pymeth_strip.call(drug))) {
-        out = _pymeth_format.call("No matching etymologies for drug <b>{}</b>.\n", drug);
+        out = _pymeth_format.call("No matching etymologies for drug <b>{}</b>.<br />", drug);
     } else {
         out = "Please enter a generic drug name.";
     }

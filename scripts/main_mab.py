@@ -82,11 +82,11 @@ class Linguist():
             lst = '\n'.join([f'<li><b>{stem}:</b>&emsp;{defn}</li>' 
                             for stem, defn in res.items()])
             out = (f'Possible etymologies for drug '
-                   f'<b>{drug}</b>:\n<ul>{lst}</ul>\n')
+                   f'<b>{drug}</b>:\n<ul>{lst}</ul><br />')
         else:
             if drug.strip():
                 out = (f'No matching etymologies for drug '
-                    f'<b>{drug}</b>.\n')
+                    f'<b>{drug}</b>.<br />')
             else:
                 out = 'Please enter a generic drug name.'
         return out
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     with open('main_mab.js', 'w') as f:
         f.write(py2js(Linguist).replace(wrong_code, right_code))
 
-    with open('mAb_stems.tsv', 'r') as f:
+    with open('../data/mAb_stems.tsv', 'r') as f:
         data = f.read()
     l = Linguist(data)
 
